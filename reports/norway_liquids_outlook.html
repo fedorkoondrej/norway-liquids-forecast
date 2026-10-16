@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Norwegian Liquids Outlook 2026–2028</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one reading column, like a two-page broker note squeezed to one; figures and tables break slightly wider. */
+:root {
+  --paper: #fafcfc;
+  --ink: #0f1b21;
+  --ink-2: #4a5a62;
+  --ink-3: #74848c;
+  --rule: #d9e2e6;
+  --band: #e2eaed;
+  --accent: #0b5d76;
+  --accent-soft: #e4f0f3;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2.25rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0e161a;
+    --ink: #e7eef1;
+    --ink-2: #acbbc2;
+    --ink-3: #7d8e96;
+    --rule: #25333a;
+    --band: #1c2a30;
+    --accent: #63b6cf;
+    --accent-soft: #14303a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0e161a;
+  --ink: #e7eef1;
+  --ink-2: #acbbc2;
+  --ink-3: #7d8e96;
+  --rule: #25333a;
+  --band: #1c2a30;
+  --accent: #63b6cf;
+  --accent-soft: #14303a;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  padding-inline: 20px;
+  padding-block: 40px 56px;
+}
+.note {
+  max-width: 760px;
+  margin-inline: auto;
+  display: grid;
+  gap: 36px;
+}
+.prose { max-width: 66ch; }
+h1, h2 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; }
+h1 { font-size: var(--step-3); line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-1); line-height: 1.3; }
+p { margin: 0; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Masthead */
+.masthead { display: grid; gap: 14px; border-top: 3px solid var(--accent); padding-top: 14px; }
+.meta {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  font-size: var(--step--1); color: var(--ink-3);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.dek { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); max-width: 62ch; }
+.dek strong { color: var(--ink); font-weight: 600; }
+
+/* Annual call */
+.call {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid var(--rule);
+}
+.call > div { padding: 16px 16px 14px; display: grid; gap: 2px; }
+.call > div + div { border-left: 1px solid var(--rule); }
+.call .year { font-size: var(--step--1); color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; }
+.call .value { font-family: var(--font-display); font-size: var(--step-3); line-height: 1.1; font-weight: 500; }
+.call .value small { font-family: var(--font-body); font-size: var(--step--1); color: var(--ink-2); font-weight: 500; margin-left: 4px; }
+.call .range { font-size: var(--step--1); color: var(--ink-2); }
+.call .year-2026 .value { color: var(--ink); }
+.call .year-2028 .value { color: var(--accent); }
+
+/* Figure */
+figure { margin: 0; display: grid; gap: 10px; }
+.fig-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 20px; }
+.fig-title { font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--step--1); color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--ink-2); }
+.swatch.base { border-top: 2px dashed var(--accent); }
+.swatch.band { height: 10px; border: 0; background: var(--band); }
+.chart-wrap { position: relative; }
+.chart-wrap svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart-wrap svg text { font-family: var(--font-body); font-size: 11px; fill: var(--ink-3); }
+.chart-wrap svg .end-label { fill: var(--ink-2); }
+.chart-wrap svg .end-label.base { fill: var(--accent); font-weight: 600; }
+.tip {
+  position: absolute; pointer-events: none; top: 0; left: 0;
+  background: var(--paper); border: 1px solid var(--rule);
+  padding: 6px 9px; font-size: var(--step--1); line-height: 1.4;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08); white-space: nowrap;
+}
+.tip b { font-weight: 600; }
+figcaption { font-size: var(--step--1); color: var(--ink-3); }
+
+/* Sections */
+section { display: grid; gap: 14px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+thead th { font-weight: 500; font-size: var(--step--1); color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; }
+thead th.forecast { color: var(--accent); }
+tbody tr.total td { font-weight: 600; border-bottom: 0; border-top: 1px solid var(--ink-3); }
+td.neg { color: var(--ink); }
+td.actual { color: var(--ink-2); }
+
+.drivers { display: grid; gap: 14px; }
+.driver { display: grid; grid-template-columns: 9rem 1fr; gap: 4px 18px; }
+.driver h3 { margin: 0; font-size: var(--step-0); font-weight: 600; line-height: 1.5; }
+.driver p { color: var(--ink-2); }
+
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.pair ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--ink-2); }
+.pair li::marker { color: var(--ink-3); }
+.pair li strong { color: var(--ink); font-weight: 600; }
+
+.trust { background: var(--accent-soft); padding: 18px 20px; display: grid; gap: 10px; }
+.trust p { color: var(--ink-2); }
+.trust strong { color: var(--ink); }
+
+.method { border-top: 1px solid var(--rule); padding-top: 14px; font-size: var(--step--1); color: var(--ink-3); display: grid; gap: 6px; }
+.method p { max-width: 90ch; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.75rem; }
+  .call { grid-template-columns: 1fr; }
+  .call > div + div { border-left: 0; border-top: 1px solid var(--rule); }
+  .driver { grid-template-columns: 1fr; }
+  .pair { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<article class="note">
+  <header class="masthead">
+    <div class="meta"><span>Upstream supply note</span><span>Norway</span><span>16 October 2026</span><span>Ondrej Fedorko</span></div>
+    <h1>Norwegian liquids supply outlook 2026–2028</h1>
+    <p class="dek">On existing fields, Norwegian liquids output peaks in 2026 at <strong>2.07 mb/d</strong> and falls to <strong>1.78 mb/d in 2028</strong>, a loss of about 285 kb/d. Johan Sverdrup has left plateau, and the mature-field base is declining by about 10% a year. New 2027 start-ups, led by Yggdrasil and Sverdrup Phase 3, are the upside and are not in these numbers.</p>
+  </header>
+
+  <div class="call" aria-label="Annual average liquids output, base case with low to high range">
+    <div class="year-2026"><span class="year">2026</span><span class="value num">2,066<small>kb/d</small></span><span class="range num">Range 2,040–2,086</span></div>
+    <div class="year-2027"><span class="year">2027</span><span class="value num">1,946<small>kb/d</small></span><span class="range num">Range 1,839–2,013</span></div>
+    <div class="year-2028"><span class="year">2028</span><span class="value num">1,781<small>kb/d</small></span><span class="range num">Range 1,625–1,894</span></div>
+  </div>
+
+  <figure>
+    <div class="fig-head">
+      <span class="fig-title">Norwegian liquids output, kb/d</span>
+      <div class="legend" aria-hidden="true">
+        <span><i class="swatch"></i>Actual</span>
+        <span><i class="swatch base"></i>Base case</span>
+        <span><i class="swatch band"></i>Low–high range</span>
+      </div>
+    </div>
+    <div class="chart-wrap" id="chart-wrap">
+      <svg id="chart" viewBox="0 0 760 330" role="img" aria-label="Monthly Norwegian liquids output from January 2019 to July 2026, then the forecast to December 2028. The base case falls from about 2,060 kb/d in August 2026 to 1,702 kb/d in December 2028, inside a low to high range of 1,538 to 1,832 kb/d."></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <figcaption>Monthly oil, NGL and condensate. Actual to July 2026 (Sodir FactPages); forecast from August 2026. Annual figures above are calendar-year averages; 2026 combines seven actual and five forecast months.</figcaption>
+  </figure>
+
+  <section>
+    <h2>What drives the decline</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Base case, kb/d</th><th>2025 actual</th><th class="forecast">2026</th><th class="forecast">2027</th><th class="forecast">2028</th><th>2026→28</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Johan Sverdrup</td><td class="actual">704</td><td>649</td><td>608</td><td>569</td><td>−80</td></tr>
+          <tr><td>Johan Castberg</td><td class="actual">108</td><td>184</td><td>188</td><td>178</td><td>−6</td></tr>
+          <tr><td>Mature fields (83)</td><td class="actual">954</td><td>849</td><td>772</td><td>696</td><td>−153</td></tr>
+          <tr><td>Young and redeveloped (12)</td><td class="actual">278</td><td>383</td><td>378</td><td>339</td><td>−44</td></tr>
+          <tr class="total"><td>Norway</td><td class="actual">2,044</td><td>2,066</td><td>1,946</td><td>1,781</td><td>−285</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="drivers">
+      <div class="driver"><h3>Johan Sverdrup</h3><p>The Phase 2 plateau averaged 730 kb/d from March 2023 to September 2025. Output has fallen steadily since December 2025, from 691 to 610 kb/d in July 2026. The base case fits an Arps decline from mid-2024 at about 7% a year. Sverdrup is a third of national supply, so its decline rate is the largest single swing in the outlook: 534 to 602 kb/d in 2028 across the cases.</p></div>
+      <div class="driver"><h3>Mature base</h3><p>83 fields, from Ekofisk and Troll to small tie-backs, produced 954 kb/d in 2025. Their combined output follows an exponential decline of about 10% a year, fitted over the last three years. Infill wells and redevelopments slow individual fields, but the group trend has been steady since 2019.</p></div>
+      <div class="driver"><h3>Johan Castberg</h3><p>Capacity is about 205 kb/d in normal months. The FPSO had two outages in its first 13 months, so uptime matters more than reservoir decline before 2028. The base case assumes 92% uptime and a plateau to the end of 2027.</p></div>
+      <div class="driver"><h3>Young and redeveloped</h3><p>Balder X, Breidablikk, Åsgard, Verdande, Halten Øst and seven smaller fields run at about 455 kb/d in normal months. The base case holds them flat to mid-2027, then declines them by 12% a year.</p></div>
+    </div>
+  </section>
+
+  <section class="pair">
+    <div>
+      <h2>Upside not in the numbers</h2>
+      <ul>
+        <li><strong>Yggdrasil</strong> (Aker BP, about 700 mmboe) is on schedule for first oil in 2027.</li>
+        <li><strong>Johan Sverdrup Phase 3</strong> (+40–50 mmboe) starts in Q4 2027 and would slow Sverdrup's decline in 2028.</li>
+        <li><strong>Valhall PWP-Fenris</strong> (2027) and <strong>Skarv Satellites</strong> (August 2026).</li>
+        <li>Sodir reports oil output running above its own 2026 forecast, by 7.1% in May.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Risks to the view</h2>
+      <ul>
+        <li><strong>Faster Sverdrup decline.</strong> June (636 kb/d) and July (610 kb/d) sit below all three cases. If they were not turnarounds, the low case is closer.</li>
+        <li><strong>Castberg reliability.</strong> At 85% uptime the field loses about 15 kb/d against the base case.</li>
+        <li><strong>End-of-life shut-ins</strong> in the mature tail can step output down faster than a smooth decline curve.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="trust">
+    <h2>How far to trust it</h2>
+    <p>For August 2026, the first forecast month, the base case gives <strong class="num">2,061 kb/d</strong>. Sodir's preliminary figure for that month is <strong class="num">2,073 kb/d</strong>, so the base case is 0.6% low.</p>
+    <p>The mature-field method was backtested from five starting points, June 2020 to June 2024. Its average error was <strong>3% one year ahead</strong> and <strong>5% two years ahead</strong>, with almost no bias in the first year. A five-year fit window overstated output at every starting point, so it is used only for the high case.</p>
+  </section>
+
+  <footer class="method">
+    <p><strong>Data.</strong> Sodir FactPages, monthly saleable production by field, snapshot of 13 October 2026 (136 fields, 1971 to July 2026). Liquids are oil, NGL and condensate; 1 Sm³ = 6.2898 bbl, divided by days in the month.</p>
+    <p><strong>Method.</strong> MySQL bronze, silver and gold layers; Python (pandas, SciPy) for Arps fits. Sverdrup and the mature group use fitted decline curves; Castberg and the young and redeveloped fields use capacity × uptime with an assumed plateau end. Cases differ in decline start, Arps b, uptime and plateau length. Existing fields only.</p>
+  </footer>
+</article>
+
+<script>
+const DATA = {"actual":[["2019-01",1820.3],["2019-02",1746.1],["2019-03",1755.5],["2019-04",1719.3],["2019-05",1588.4],["2019-06",1398.0],["2019-07",1717.0],["2019-08",1663.1],["2019-09",1571.1],["2019-10",1791.6],["2019-11",1989.9],["2019-12",2103.0],["2020-01",1980.7],["2020-02",2105.2],["2020-03",2061.1],["2020-04",2095.3],["2020-05",2039.5],["2020-06",1860.0],["2020-07",2064.5],["2020-08",2024.5],["2020-09",1774.0],["2020-10",1881.4],["2020-11",2034.2],["2020-12",2131.9],["2021-01",2125.4],["2021-02",2106.5],["2021-03",2095.9],["2021-04",1998.5],["2021-05",1848.4],["2021-06",1846.7],["2021-07",2038.2],["2021-08",2099.9],["2021-09",2042.1],["2021-10",2070.0],["2021-11",1977.9],["2021-12",2093.2],["2022-01",1969.0],["2022-02",1999.2],["2022-03",1949.2],["2022-04",1862.2],["2022-05",1816.2],["2022-06",1543.7],["2022-07",1874.1],["2022-08",2014.7],["2022-09",1839.3],["2022-10",1977.8],["2022-11",1979.3],["2022-12",2003.5],["2023-01",1997.1],["2023-02",2005.4],["2023-03",2064.3],["2023-04",2051.9],["2023-05",2007.9],["2023-06",2019.4],["2023-07",2062.5],["2023-08",2016.4],["2023-09",1856.6],["2023-10",1988.8],["2023-11",2047.1],["2023-12",2123.8],["2024-01",2073.8],["2024-02",2002.5],["2024-03",2091.9],["2024-04",2091.0],["2024-05",1953.6],["2024-06",1970.2],["2024-07",2083.1],["2024-08",2000.2],["2024-09",1734.1],["2024-10",2000.2],["2024-11",1971.5],["2024-12",2026.1],["2025-01",1978.2],["2025-02",1930.2],["2025-03",1975.0],["2025-04",2028.7],["2025-05",1968.5],["2025-06",1860.7],["2025-07",2173.4],["2025-08",2158.9],["2025-09",2075.2],["2025-10",2101.3],["2025-11",2088.0],["2025-12",2192.5],["2026-01",2198.7],["2026-02",2171.4],["2026-03",2141.5],["2026-04",2169.6],["2026-05",1900.9],["2026-06",2021.4],["2026-07",1986.4]],"forecast":[["2026-08",2006.2,2061.3,2108.3],["2026-09",1992.2,2050.3,2098.8],["2026-10",1978.4,2039.4,2089.4],["2026-11",1964.7,2028.6,2080.0],["2026-12",1951.2,2017.9,2070.7],["2027-01",1937.7,2007.3,2061.5],["2027-02",1919.7,1996.7,2052.4],["2027-03",1901.8,1986.3,2043.4],["2027-04",1884.1,1975.9,2034.4],["2027-05",1866.6,1965.7,2025.5],["2027-06",1849.3,1955.5,2016.6],["2027-07",1832.2,1945.4,2007.9],["2027-08",1812.9,1931.3,1999.2],["2027-09",1793.8,1917.4,1990.6],["2027-10",1775.0,1903.6,1982.0],["2027-11",1756.3,1889.9,1973.5],["2027-12",1737.8,1876.4,1965.1],["2028-01",1719.6,1862.9,1956.7],["2028-02",1701.5,1847.6,1945.0],["2028-03",1683.6,1832.5,1933.3],["2028-04",1666.0,1817.5,1921.7],["2028-05",1648.5,1802.6,1910.2],["2028-06",1631.2,1787.9,1898.8],["2028-07",1614.1,1773.3,1887.5],["2028-08",1598.6,1758.8,1876.3],["2028-09",1583.2,1744.5,1865.1],["2028-10",1568.1,1730.3,1854.1],["2028-11",1553.0,1716.2,1843.2],["2028-12",1538.2,1702.3,1832.3]]};
+
+(function drawChart() {
+  const svg = document.getElementById("chart");
+  const wrap = document.getElementById("chart-wrap");
+  const tip = document.getElementById("tip");
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 760, H = 330;
+  const M = { top: 14, right: 74, bottom: 28, left: 46 };
+  const Y_MIN = 1200, Y_MAX = 2400;
+
+  const monthIndex = (ym) => { const [y, m] = ym.split("-").map(Number); return (y - 2019) * 12 + (m - 1); };
+  const lastIndex = monthIndex("2028-12");
+  const x = (i) => M.left + (i / lastIndex) * (W - M.left - M.right);
+  const y = (v) => M.top + (1 - (v - Y_MIN) / (Y_MAX - Y_MIN)) * (H - M.top - M.bottom);
+  const fmt = (v) => Math.round(v).toLocaleString("en-US");
+  const label = (ym) => { const [yy, mm] = ym.split("-").map(Number); return new Date(yy, mm - 1, 1).toLocaleString("en-US", { month: "short" }) + " " + yy; };
+
+  const el = (name, attrs, parent = svg) => {
+    const node = document.createElementNS(NS, name);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+    parent.appendChild(node);
+    return node;
+  };
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+  function render() {
+    svg.replaceChildren();
+    const ink2 = css("--ink-2"), ink3 = css("--ink-3"), rule = css("--rule"), band = css("--band"), accent = css("--accent");
+
+    // Horizontal grid and y labels
+    for (let v = Y_MIN; v <= Y_MAX; v += 200) {
+      el("line", { x1: M.left, x2: W - M.right, y1: y(v), y2: y(v), stroke: rule, "stroke-width": 1 });
+      const t = el("text", { x: M.left - 8, y: y(v) + 4, "text-anchor": "end" });
+      t.textContent = v.toLocaleString("en-US");
+    }
+    // Year labels
+    for (let yr = 2019; yr <= 2028; yr++) {
+      const t = el("text", { x: x((yr - 2019) * 12 + 5.5), y: H - 8, "text-anchor": "middle" });
+      t.textContent = yr;
+    }
+
+    // Forecast band (low to high)
+    const fc = DATA.forecast;
+    const top = fc.map((r) => `${x(monthIndex(r[0]))},${y(r[3])}`);
+    const bottom = fc.slice().reverse().map((r) => `${x(monthIndex(r[0]))},${y(r[1])}`);
+    el("polygon", { points: top.concat(bottom).join(" "), fill: band, stroke: "none" });
+
+    // Forecast start marker
+    const fStart = x(monthIndex(fc[0][0]) - 0.5);
+    el("line", { x1: fStart, x2: fStart, y1: M.top, y2: H - M.bottom, stroke: rule, "stroke-width": 1 });
+    const ft = el("text", { x: fStart + 6, y: M.top + 10 });
+    ft.textContent = "Forecast";
+
+    // Actual line
+    const actualPts = DATA.actual.map((r) => `${x(monthIndex(r[0]))},${y(r[1])}`).join(" ");
+    el("polyline", { points: actualPts, fill: "none", stroke: ink2, "stroke-width": 1.5, "stroke-linejoin": "round" });
+
+    // Base case, joined to the last actual month
+    const lastActual = DATA.actual[DATA.actual.length - 1];
+    const basePts = [`${x(monthIndex(lastActual[0]))},${y(lastActual[1])}`].concat(fc.map((r) => `${x(monthIndex(r[0]))},${y(r[2])}`)).join(" ");
+    el("polyline", { points: basePts, fill: "none", stroke: accent, "stroke-width": 2, "stroke-dasharray": "6 4", "stroke-linejoin": "round" });
+
+    // End labels at December 2028
+    const end = fc[fc.length - 1];
+    [["high", end[3], -2], ["base", end[2], 0], ["low", end[1], 2]].forEach(([name, v, nudge]) => {
+      const t = el("text", { x: W - M.right + 8, y: y(v) + 4 + nudge, class: "end-label " + name });
+      t.textContent = `${name} ${fmt(v)}`;
+    });
+
+    // Hover layer
+    const cross = el("line", { y1: M.top, y2: H - M.bottom, stroke: ink3, "stroke-width": 1, visibility: "hidden" });
+    const dot = el("circle", { r: 4, fill: accent, stroke: css("--paper"), "stroke-width": 2, visibility: "hidden" });
+    const hit = el("rect", { x: M.left, y: M.top, width: W - M.left - M.right, height: H - M.top - M.bottom, fill: "transparent" });
+
+    const rows = DATA.actual.map((r) => ({ ym: r[0], actual: r[1] })).concat(fc.map((r) => ({ ym: r[0], low: r[1], base: r[2], high: r[3] })));
+
+    function show(evt) {
+      const box = svg.getBoundingClientRect();
+      const sx = ((evt.clientX - box.left) / box.width) * W;
+      const i = Math.max(0, Math.min(lastIndex, Math.round(((sx - M.left) / (W - M.left - M.right)) * lastIndex)));
+      const row = rows.find((r) => monthIndex(r.ym) === i);
+      if (!row) return;
+      const v = row.actual ?? row.base;
+      cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
+      dot.setAttribute("cx", x(i)); dot.setAttribute("cy", y(v)); dot.setAttribute("visibility", "visible");
+      dot.setAttribute("fill", row.actual !== undefined ? ink2 : accent);
+      tip.innerHTML = row.actual !== undefined
+        ? `<b>${label(row.ym)}</b><br>Actual ${fmt(row.actual)} kb/d`
+        : `<b>${label(row.ym)}</b><br>Base ${fmt(row.base)} kb/d<br>Range ${fmt(row.low)}–${fmt(row.high)}`;
+      tip.hidden = false;
+      const px = (x(i) / W) * box.width, py = (y(v) / H) * box.height;
+      const tw = tip.offsetWidth;
+      const left = px + 12 + tw > box.width ? px - 12 - tw : px + 12;
+      tip.style.transform = `translate(${left}px, ${Math.max(0, py - 48)}px)`;
+    }
+    function hide() { cross.setAttribute("visibility", "hidden"); dot.setAttribute("visibility", "hidden"); tip.hidden = true; }
+    hit.addEventListener("pointermove", show);
+    hit.addEventListener("pointerdown", show);
+    hit.addEventListener("pointerleave", hide);
+  }
+
+  render();
+  // Redraw when the theme changes so SVG colors follow the tokens
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>
+
+</body>
+</html>
